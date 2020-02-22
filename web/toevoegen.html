@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <title>Toestel beheer - toevoegen</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+    <h1>Toestel beheer</h1>
+    <nav>
+        <ul>
+            <li><a class="btn btn-default" href="index.html">Home</a></li>
+            <li><a class="btn btn-default" href="overzicht.html">Overzicht</a></li>
+            <li><a class="btn btn-default btn-active" href="toevoegen.html">Toevoegen</a></li>
+        </ul>
+    </nav>
+    <div class="picture-header"></div>
+</header>
+<main>
+    <section>
+        <h2>Nieuw toestel toevoegen</h2>
+        <form method="post" name="nieuw_form">
+            <label for="naam">Toestel naam:</label>
+            <input id="naam" name="Tnaam" type="text">
+
+            <label for="bouwjaar">Bouwjaar:</label>
+            <input id="bouwjaar" name="bouwjaar" type="text">
+
+            <label for="leverancier">Leverancier:</label>
+            <input id="leverancier" name="leverancier" type="text">
+
+            <label for="opslag">Opslag capaciteit:</label>
+            <input id="opslag" name="opslag" type="number" min="8">
+
+            <label for="aantal">Aantal in bezit:</label>
+            <input id="aantal" name="aantal" type="number" min="0">
+
+            <input class="btn btn-default" type="submit" name="nieuw" value="Toevoegen">
+        </form>
+    </section>
+</main>
+<footer>
+    <p>Copyright © 2020 | Alle rechten voorbehouden. | Website door Angelo Lemmens </p>
+</footer>
+</body>
+</html>
