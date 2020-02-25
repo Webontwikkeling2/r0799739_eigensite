@@ -67,7 +67,7 @@ form{
     padding-right: 20rem;
 }
 form > label{
-    float: left;
+    display: block;
 }
 form > input{
     display: block;
