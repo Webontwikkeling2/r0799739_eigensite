@@ -24,9 +24,11 @@ public class ToestelDB {
         throw new ExecutionControl.NotImplementedException("Deze functie is nog niet beschikbaar.");
     }
 
-    public Toestel getTotaalAantalToestellen(){
+    public int getTotaalAantalToestellen(){
+        int aantal = 0;
         for (Toestel toestel: toestellen) {
-
+            aantal += toestel.getAantal();
         }
+        return aantal;
     }
 }

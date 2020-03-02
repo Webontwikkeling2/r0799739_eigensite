@@ -1,4 +1,5 @@
-<%--
+<%@ page import="domain.model.Toestel" %>
+<%@ page import="java.util.ArrayList" %><%--
   Created by IntelliJ IDEA.
   User: angelolemmens
   Date: 01/03/2020
@@ -19,9 +20,9 @@
     <h1>Toestel beheer</h1>
     <nav>
         <ul>
-            <li><a class="btn btn-default" href="index.html">Home</a></li>
-            <li><a class="btn btn-default btn-active" href="overzicht.html">Overzicht</a></li>
-            <li><a class="btn btn-default" href="toevoegen.html">Toevoegen</a></li>
+            <li><a class="btn btn-default" href="index.jsp">Home</a></li>
+            <li><a class="btn btn-default btn-active" href="/Toestellen">Overzicht</a></li>
+            <li><a class="btn btn-default" href="toevoegen.jsp">Toevoegen</a></li>
         </ul>
     </nav>
     <div class="picture-header"></div>
@@ -40,17 +41,19 @@
             </tr>
             </thead>
             <tbody>
+            <% for (Toestel toestel: (ArrayList<Toestel>) request.getAttribute("toestellen")) { %>
             <tr>
-                <td>Legion</td>
-                <td>2020</td>
-                <td>Lenovo</td>
-                <td>512</td>
-                <td>8</td>
+                <td><%= toestel.getNaam() %></td>
+                <td><%= toestel.getBouwjaar() %></td>
+                <td><%= toestel.getLeverancier() %></td>
+                <td><%= toestel.getOpslag() %></td>
+                <td><%= toestel.getAantal() %></td>
             </tr>
+            <% } %>
             <tr>
                 <td colspan="3"></td>
                 <td><b>Totaal</b></td>
-                <td class="totaal">8</td>
+                <td class="totaal"><%=request.getAttribute("aantal")%></td>
             </tr>
             </tbody>
         </table>

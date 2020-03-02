@@ -30,7 +30,7 @@ public class Toestellen extends HttpServlet {
         Databank.add(MicrosoftSurface);
 
         request.setAttribute("toestellen", Databank.getToestellen());
-        request.setAttribute("opslag", Databank.getToestelMetMeesteOpslag());
+        request.setAttribute("aantal", Databank.getTotaalAantalToestellen());
 
         RequestDispatcher view = request.getRequestDispatcher("overview.jsp");
         view.forward(request, response);
