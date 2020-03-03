@@ -14,20 +14,13 @@ import java.io.IOException;
 
 @WebServlet("/Toestellen")
 public class Toestellen extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private ToestelDB Databank = new ToestelDB();
 
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doGet(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ToestelDB Databank = new ToestelDB();
-
-        Toestel LenovoLegion = new Toestel("Lenovo-Legion-512", "Lenovo", 512, 8, 2020);
-        Toestel AppleMacbookPro = new Toestel("Apple-MacbookPro-1tb", "Apple", 1000, 1, 2017);
-        Toestel MicrosoftSurface = new Toestel("Microsoft-surface-256", "Microsoft", 256, 2, 2019);
-
-        Databank.add(LenovoLegion);
-        Databank.add(AppleMacbookPro);
-        Databank.add(MicrosoftSurface);
 
         request.setAttribute("toestellen", Databank.getToestellen());
         request.setAttribute("aantal", Databank.getTotaalAantalToestellen());

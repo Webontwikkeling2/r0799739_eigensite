@@ -54,6 +54,7 @@
                 <td colspan="3"></td>
                 <td><b>Totaal</b></td>
                 <td class="totaal"><%=request.getAttribute("aantal")%></td>
+                <!-- TODO zin maken ipv in tabel -->
             </tr>
             </tbody>
         </table>
