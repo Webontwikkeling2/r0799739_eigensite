@@ -61,16 +61,18 @@ table > thead td{
 }
 
 /*form*/
-form{
-    text-align: right;
-    padding-left: 20rem;
-    padding-right: 20rem;
-}
 form > label{
     display: block;
+    text-align: center;
 }
 form > input{
     display: block;
+    text-align: center;
+    margin: auto;
+}
+form > [type=submit]{
+    display: flex;
+    margin-top: 1rem;
 }
 /*button*/
 .btn {

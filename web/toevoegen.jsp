@@ -29,7 +29,9 @@
 <main>
     <section>
         <h2>Nieuw toestel toevoegen</h2>
-        <form method="post" name="nieuw_form">
+        <%= (request.getAttribute("error") != null) ? "<p>"+request.getAttribute("error")+"</p>" : "" %>
+        <%= (request.getAttribute("success") != null) ? "<p>"+request.getAttribute("success")+"</p>" : "" %>
+        <form method="post" name="nieuw_form" action="/Toestellen">
             <label for="naam">Toestel naam:</label>
             <input id="naam" name="Tnaam" type="text">
 

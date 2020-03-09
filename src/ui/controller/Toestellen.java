@@ -17,7 +17,22 @@ public class Toestellen extends HttpServlet {
     private ToestelDB Databank = new ToestelDB();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doGet(request, response);
+        String naam = request.getParameter("Tnaam");
+        String bouwjaar = request.getParameter("bouwjaar");
+        String leverancier = request.getParameter("leverancier");
+        String opslag = request.getParameter("opslag");
+        String aantal = request.getParameter("aantal");
+
+        if (!naam.isEmpty() && !bouwjaar.isEmpty() && !leverancier.isEmpty() && !opslag.isEmpty() && !aantal.isEmpty()){
+            Databank.add(new Toestel(naam, leverancier, Integer.parseInt(opslag), Integer.parseInt(aantal), Integer.parseInt(bouwjaar)));
+            request.setAttribute("success", "Het toetel werd toegevoegd.");
+        }else{
+            request.setAttribute("error", "U moet alle verplichte velden invullen.");
+        }
+
+        RequestDispatcher view = request.getRequestDispatcher("toevoegen.jsp");
+        view.forward(request, response);
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
