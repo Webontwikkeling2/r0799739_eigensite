@@ -20,7 +20,7 @@
     <nav>
         <ul>
             <li><a class="btn btn-default" href="index.jsp">Home</a></li>
-            <li><a class="btn btn-default" href="/Toestellen">Overzicht</a></li>
+            <li><a class="btn btn-default" href="Toestellen">Overzicht</a></li>
             <li><a class="btn btn-default btn-active" href="toevoegen.jsp">Toevoegen</a></li>
         </ul>
     </nav>
@@ -31,7 +31,7 @@
         <h2>Nieuw toestel toevoegen</h2>
         <%= (request.getAttribute("error") != null) ? "<p>"+request.getAttribute("error")+"</p>" : "" %>
         <%= (request.getAttribute("success") != null) ? "<p>"+request.getAttribute("success")+"</p>" : "" %>
-        <form method="post" name="nieuw_form" action="/Toestellen">
+        <form method="post" name="nieuw_form" action="Toestellen">
             <label for="naam">Toestel naam:</label>
             <input id="naam" name="Tnaam" type="text">
 

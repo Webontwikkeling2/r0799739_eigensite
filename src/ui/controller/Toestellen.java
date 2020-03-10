@@ -9,12 +9,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.xml.crypto.Data;
 import java.io.IOException;
 
 @WebServlet("/Toestellen")
 public class Toestellen extends HttpServlet {
-    private ToestelDB Databank = new ToestelDB();
+    private String destination;
+    private ToestelDB databank = new ToestelDB();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String naam = request.getParameter("Tnaam");
@@ -24,21 +24,21 @@ public class Toestellen extends HttpServlet {
         String aantal = request.getParameter("aantal");
 
         if (!naam.isEmpty() && !bouwjaar.isEmpty() && !leverancier.isEmpty() && !opslag.isEmpty() && !aantal.isEmpty()){
-            Databank.add(new Toestel(naam, leverancier, Integer.parseInt(opslag), Integer.parseInt(aantal), Integer.parseInt(bouwjaar)));
-            request.setAttribute("success", "Het toetel werd toegevoegd.");
+            databank.add(new Toestel(naam, leverancier, Integer.parseInt(opslag), Integer.parseInt(aantal), Integer.parseInt(bouwjaar)));
+            doGet(request, response);
         }else{
             request.setAttribute("error", "U moet alle verplichte velden invullen.");
+            destination = "toevoegen.jsp";
+            RequestDispatcher view = request.getRequestDispatcher("toevoegen.jsp");
+            view.forward(request, response);
         }
-
-        RequestDispatcher view = request.getRequestDispatcher("toevoegen.jsp");
-        view.forward(request, response);
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        request.setAttribute("toestellen", Databank.getToestellen());
-        request.setAttribute("aantal", Databank.getTotaalAantalToestellen());
+        request.setAttribute("toestellen", databank.getToestellen());
+        request.setAttribute("aantal", databank.getTotaalAantalToestellen());
 
         RequestDispatcher view = request.getRequestDispatcher("overview.jsp");
         view.forward(request, response);

@@ -20,7 +20,7 @@
     <nav>
         <ul>
             <li><a class="btn btn-default btn-active" href="index.jsp">Home</a></li>
-            <li><a class="btn btn-default" href="/Toestellen">Overzicht</a></li>
+            <li><a class="btn btn-default" href="Toestellen">Overzicht</a></li>
             <li><a class="btn btn-default" href="toevoegen.jsp">Toevoegen</a></li>
         </ul>
     </nav>
